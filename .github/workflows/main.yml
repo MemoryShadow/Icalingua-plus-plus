@@ -101,7 +101,7 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: get dist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist
           path: icalingua/dist
@@ -162,7 +162,7 @@ jobs:
         run: pnpm install
 
       - name: get dist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist
           path: icalingua/dist
@@ -217,7 +217,7 @@ jobs:
         run: pnpm install
 
       - name: get dist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist
           path: icalingua/dist
@@ -284,7 +284,7 @@ jobs:
         run: pnpm install
 
       - name: get dist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist
           path: icalingua/dist
@@ -337,7 +337,7 @@ jobs:
       - build-dist-bundle
     steps:
       - name: get the assets
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkgres
 
@@ -346,7 +346,7 @@ jobs:
         run: sed 's/VERSION/${{ needs.build-dist-bundle.outputs.arch-version }}/;s/ARCH/x86_64/' ${{ needs.build-dist-bundle.outputs.pkg-name }}.PKGBUILD.template > PKGBUILD
 
       - name: get binary for x86_64
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-x86_64.asar
 
@@ -383,7 +383,7 @@ jobs:
       - build-ia32
     steps:
       - name: get the assets
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkgres
 
@@ -392,7 +392,7 @@ jobs:
         run: sed 's/VERSION/${{ needs.build-dist-bundle.outputs.arch-version }}/;s/ARCH/i686/' ${{ needs.build-dist-bundle.outputs.pkg-name }}.PKGBUILD.template > PKGBUILD
 
       - name: get binary for i686
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-ia32.asar
 
@@ -430,7 +430,7 @@ jobs:
       - build-arm64
     steps:
       - name: get the assets
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkgres
 
@@ -439,7 +439,7 @@ jobs:
         run: sed 's/VERSION/${{ needs.build-dist-bundle.outputs.arch-version }}/;s/ARCH/aarch64/' ${{ needs.build-dist-bundle.outputs.pkg-name }}.PKGBUILD.template > PKGBUILD
 
       - name: get binary for aarch64
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-arm64.asar
 
@@ -477,7 +477,7 @@ jobs:
       - build-armv7l
     steps:
       - name: get the assets
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkgres
 
@@ -486,7 +486,7 @@ jobs:
         run: sed 's/VERSION/${{ needs.build-dist-bundle.outputs.arch-version }}/;s/ARCH/armv7l/' ${{ needs.build-dist-bundle.outputs.pkg-name }}.PKGBUILD.template > PKGBUILD
 
       - name: get binary for armv7l
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-armv7l.asar
 
@@ -543,7 +543,7 @@ jobs:
         run: pnpm install
 
       - name: get built files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64-unpacked
           path: icalingua/unpacked
@@ -610,7 +610,7 @@ jobs:
         run: pnpm install
 
       - name: get built files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64-unpacked
           path: icalingua/unpacked
@@ -662,7 +662,7 @@ jobs:
         run: pnpm install
 
       - name: get built files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ia32-unpacked
           path: icalingua/unpacked
@@ -714,7 +714,7 @@ jobs:
         run: pnpm install
 
       - name: get built files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: arm64-unpacked
           path: icalingua/unpacked
@@ -766,7 +766,7 @@ jobs:
         run: pnpm install
 
       - name: get built files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: armv7l-unpacked
           path: icalingua/unpacked
@@ -1065,7 +1065,7 @@ jobs:
         run: mkdir release
 
       - name: get app-x86_64.asar
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-x86_64.asar
 
@@ -1073,7 +1073,7 @@ jobs:
         run: mv app.asar release/app-x86_64.asar
 
       - name: get app-ia32.asar
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-ia32.asar
 
@@ -1081,7 +1081,7 @@ jobs:
         run: mv app.asar release/app-ia32.asar
 
       - name: get app-arm64.asar
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-arm64.asar
 
@@ -1089,7 +1089,7 @@ jobs:
         run: mv app.asar release/app-arm64.asar
 
       - name: get app-armv7l.asar
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-armv7l.asar
 
@@ -1097,139 +1097,139 @@ jobs:
         run: mv app.asar release/app-armv7l.asar
 
       - name: get aarch64.pkg.tar.zst
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: aarch64.pkg.tar.zst
           path: release
 
       - name: get arm64.AppImage
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: arm64.AppImage
           path: release
 
       - name: get arm64.deb
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: arm64.deb
           path: release
 
       - name: get arm64.rpm
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: arm64.rpm
           path: release
 
       - name: get arm64.tar.xz
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: arm64.tar.xz
           path: release
 
       - name: get armv7l.AppImage
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: armv7l.AppImage
           path: release
 
       - name: get armv7l.deb
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: armv7l.deb
           path: release
 
       - name: get armv7l.rpm
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: armv7l.rpm
           path: release
 
       - name: get armv7l.tar.xz
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: armv7l.tar.xz
           path: release
 
       - name: get i686.pkg.tar.zst
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: i686.pkg.tar.zst
           path: release
 
       - name: get ia32.AppImage
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ia32.AppImage
           path: release
 
       - name: get ia32.tar.xz
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ia32.tar.xz
           path: release
 
       - name: get ia32.deb
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ia32.deb
           path: release
 
       - name: get ia32.rpm
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ia32.rpm
           path: release
 
       - name: get x86_64.AppImage
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64.AppImage
           path: release
 
       - name: get x86_64.snap
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64.snap
           path: release
 
       - name: get x86_64.tar.xz
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64.tar.xz
           path: release
 
       - name: get x86_64.deb
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64.deb
           path: release
 
       - name: get x86_64.pkg.tar.zst
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64.pkg.tar.zst
           path: release
 
       - name: get x86_64.rpm
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: x86_64.rpm
           path: release
 
       - name: get Icalingua_Windows64.exe
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: Icalingua_Windows64.exe
           path: release
 
       - name: get Icalingua_Windows_arm64.exe
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: Icalingua_Windows_arm64.exe
           path: release
 
       - name: get Icalingua++_x64.dmg
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: Icalingua++_x64.dmg
           path: release
